@@ -84,7 +84,7 @@ $(function() {
   })
 
   // Try Again button
-  $('#tryAgain').on('click', function() {
+  $('.tryAgain').on('click', function() {
     $('#pass').val('');
     $('#emailAddress').val('');
     $('#auth').val('');
@@ -96,23 +96,8 @@ $(function() {
     $('.username').css('display', 'inherit');
     $('.password').css('display', 'inherit');
     $('.twoFactAuth').css('display', 'none');
-    $('#codeSubmitButton').css('display', 'none')
-  })
-
-// Code Try Again button
-  $('#codeTryAgain').on('click', function() {
-    $('#pass').val('');
-    $('#emailAddress').val('');
-    $('#auth').val('');
-    $('#loginSubmit').prop('disabled', false);
-    $('#error').css('display', 'none')
-    $('#codeError').css('display', 'none');
-    $('#loginBox').fadeIn(500).css('display', 'inherit');
-    $('#loginSubmit').css('display', 'inherit');
-    $('.username').css('display', 'inherit');
-    $('.password').css('display', 'inherit');
-    $('.twoFactAuth').css('display', 'none');
-    $('#codeSubmitButton').css('display', 'none')
+    $('#codeSubmitButton').css('display', 'none');
+    verified = false
   })
 
   // Cancel button
