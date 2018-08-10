@@ -117,6 +117,10 @@ body {
   display: none;
 }
 
+#searchSearchButton {
+  margin-bottom: 25px;
+}
+
 /* Body */
 
 .background {

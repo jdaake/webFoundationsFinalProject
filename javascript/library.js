@@ -26,12 +26,15 @@ $(function() {
   // Endpoint display
   $('#endpoint').on('change', function() {
     if ($(this).val() == 'search') {
+      $('#searchQuery').css('border', '1px solid lightgray');
       displaySearchBox();
     }
     if ($(this).val() == 'translate') {
+      $('#searchQuery').css('border', '1px solid lightgray');
       displayTranslateBox();
     }
     if ($(this).val() == 'random') {
+      $('#searchTag').css('border', '1px solid lightgray');
       displayRandomBox();
     }
   })
@@ -74,12 +77,17 @@ $(function() {
   // Search Request
   $('#searchSearchButton').on('click', function() {
     event.preventDefault();
+
+    // Reset borders on required fields
+    $('#searchQuery').css('border', '1px solid lightgray');
+    $('#searchTag').css('border', '1px solid lightgray');
+
     // Reset Sort Select
     $('#sortSelect').prop('selectedIndex', 0);
     // Search Endpoint
     if ($('#limitBox').hasClass('search')) {
       if ($('#searchQuery').val() == '') {
-        alert('Query is required')
+        $('#searchQuery').css('border', '2px solid red');
       } else {
         $('#selectFilter').css('display', 'inherit');
         $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&q=${$('#searchQuery').val()}&limit=${$('#searchLimit').val()}&offset=${$('#searchOffset').val()}&rating=${$('#searchRating').val()}&lang=${$('#searchLang').val()}`, function(data) {
@@ -99,7 +107,7 @@ $(function() {
     // Translate Endpoint
     if ($('#queryBox').hasClass('translate')) {
       if ($('#searchQuery').val() == '') {
-        alert('Query is required')
+        $('#searchQuery').css('border', '2px solid red');
       } else {
         $.getJSON(`https://api.giphy.com/v1/gifs/translate?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&s=${$('#searchQuery').val()}`, function(data) {
             searchResults = data;
@@ -118,7 +126,7 @@ $(function() {
     // Random Endpoint
     if ($('#tagBox').hasClass('random')) {
       if ($('#searchTag').val() == '') {
-        alert('Tag is required')
+        $('#searchTag').css('border', '2px solid red')
       } else {
         $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&tag=${$('#searchTag').val()}&rating=${$('#searchRating').val()}`, function(data) {
             searchResults = data;
@@ -139,14 +147,17 @@ $(function() {
   function appendGif(data) {
     $('#searchResults').empty();
     for (i in data) {
+      // Convert date and time
       var event = new Date(data[i].import_datetime);
       event = event.toLocaleString('en-US', {
         timeZone: 'UTC'
       })
       event = event.split(',')[0];
+
+      // Append GIF cards
       $('#searchResults').append(`
         <div class="card reviewCard col-3">
-        <a class='align-self-center' href='${data[i].images.downsized.url}' target='_blank'><img class="card-img-top align-self-center" src="${data[i].images.downsized.url}" alt=""></a>
+        <a class='align-self-center' href='${data[i].images.downsized.url}' target='_blank'><img class="card-img-top align-self-center" src='${data[i].images.downsized.url}' alt="GIF image"></a>
         <div class="card-body d-flex flex-column">
         <h5 class="card-title-gif d-flex text-center justify-content-center">${data[i].title}</h5>
         <h6 class="card-subtitle mb-2 d-flex text-center justify-content-center">Date Added: ${event}</h6>
