@@ -342,6 +342,12 @@ table {
   margin-top: 100px;
 }
 
+#codeError {
+  max-width: 525px;
+  display: none;
+  margin-top: 100px;
+}
+
 .twoFactAuth {
   display: none;
 }

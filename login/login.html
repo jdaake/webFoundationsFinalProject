@@ -73,7 +73,7 @@
         </form>
       </div>
     </div>
-    <!-- Error Container -->
+    <!-- Username/password error Container -->
     <div id="error" class="align-items-center container">
       <div class="container">
         <div class="card errorCard">
@@ -82,6 +82,21 @@
             </div>
             <div class="container d-flex justify-content-center">
               <button id='tryAgain' class="btn button formButton" type="button">Try Again</button>
+              <button class="btn cancelButton loginCancel formButton">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Code error container -->
+    <div id="codeError" class="align-items-center container">
+      <div class="container">
+        <div class="card errorCard">
+          <div class="card-body justify-content-center">
+            <div class="text-center justify-content-center">The code you entered is incorrect. Please try again.
+            </div>
+            <div class="container d-flex justify-content-center">
+              <button id='codeTryAgain' class="btn button formButton" type="button">Try Again</button>
               <button class="btn cancelButton loginCancel formButton">Cancel</button>
             </div>
           </div>
