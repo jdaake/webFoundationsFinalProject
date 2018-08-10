@@ -82,17 +82,16 @@ $(function() {
       } else {
         $('#selectFilter').css('display', 'inherit');
         $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&q=${$('#searchQuery').val()}&limit=${$('#searchLimit').val()}&offset=${$('#searchOffset').val()}&rating=${$('#searchRating').val()}&lang=${$('#searchLang').val()}`, function(data) {
-          searchResults = data.data;
-          console.log(searchResults)
-
-          appendGif(searchResults);
-        }).fail(function(jqXHR) {
-          if (jqXHR.status == 404) {
-            alert("404 Not Found");
-          } else {
-            alert("Other non-handled error type");
-          }
-        });
+            searchResults = data.data;
+            appendGif(searchResults);
+          })
+          .fail(function(jqXHR) {
+            if (jqXHR.status == 404) {
+              alert("404 Not Found");
+            } else {
+              alert("Other non-handled error type");
+            }
+          });
       }
     }
 
@@ -102,15 +101,16 @@ $(function() {
         alert('Query is required')
       } else {
         $.getJSON(`https://api.giphy.com/v1/gifs/translate?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&s=${$('#searchQuery').val()}`, function(data) {
-          searchResults = data
-          appendGif(searchResults);
-        }).fail(function(jqXHR) {
-          if (jqXHR.status == 404) {
-            alert("404 Not Found");
-          } else {
-            alert("Other non-handled error type");
-          }
-        });
+            searchResults = data;
+            appendGif(searchResults);
+          })
+          .fail(function(jqXHR) {
+            if (jqXHR.status == 404) {
+              alert("404 Not Found");
+            } else {
+              alert("Other non-handled error type");
+            }
+          });
       }
     }
 
@@ -120,15 +120,16 @@ $(function() {
         alert('Tag is required')
       } else {
         $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&tag=${$('#searchTag').val()}&rating=${$('#searchRating').val()}`, function(data) {
-          searchResults = data;
-          appendGif(searchResults);
-        }).fail(function(jqXHR) {
-          if (jqXHR.status == 404) {
-            alert("404 Not Found");
-          } else {
-            alert("Other non-handled error type");
-          }
-        });
+            searchResults = data;
+            appendGif(searchResults);
+          })
+          .fail(function(jqXHR) {
+            if (jqXHR.status == 404) {
+              alert("404 Not Found");
+            } else {
+              alert("Other non-handled error type");
+            }
+          });
       }
     }
   })
@@ -190,7 +191,7 @@ $(function() {
       return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
     })
   }
-  
+
   // Sort by Rating Ascending
   function ratingAscending() {
     searchResults.sort(function(a, b) {
@@ -219,63 +220,43 @@ $(function() {
     })
   }
 
-  // Sort on click functions
+  // Sort on click functions - Used for sort buttons.
 
   // A to Z Click function
-  $('#titleAscending').on('click', function() {
-    titleAscending();
-    appendGif(searchResults)
-  })
+  // $('#titleAscending').on('click', function() {
+  //   titleAscending();
+  //   appendGif(searchResults)
+  // })
 
   // Z to A Click function
-  $('#titleDescending').on('click', function() {
-    titleDescending();
-    appendGif(searchResults)
-  })
+  // $('#titleDescending').on('click', function() {
+  //   titleDescending();
+  //   appendGif(searchResults)
+  // })
 
   // Rating Ascending click function
-  $('#ratingAscending').on('click', function() {
-    ratingAscending();
-    appendGif(searchResults)
-  })
+  // $('#ratingAscending').on('click', function() {
+  //   ratingAscending();
+  //   appendGif(searchResults)
+  // })
 
   // Rating Descending click function
-  $('#ratingDescending').on('click', function() {
-    ratingDescending();
-    appendGif(searchResults)
-  })
+  // $('#ratingDescending').on('click', function() {
+  //   ratingDescending();
+  //   appendGif(searchResults)
+  // })
+
   // Oldest date click function
-  $('#oldestGif').on('click', function() {
-    dateOldestGif();
-    appendGif(searchResults)
-  })
+  // $('#oldestGif').on('click', function() {
+  //   dateOldestGif();
+  //   appendGif(searchResults)
+  // })
 
   // Newest date click function
-  $('#newestGif').on('click', function() {
-    dateNewestGif();
-    appendGif(searchResults)
-  })
-
-
-  // Things that don't work
-
-  // Copy click function
-  // $('#copyButton').on('click', copyLink);
-
-  // Copy Link
-  // function copyLink() {
-  //   var copyText = document.getElementById('#link')
-  //   copyText.select();
-  //   document.execCommand('copy');
-  // }
-
-
-  // copy function string literal
-  // <button id='copyButton' class="btn mt-auto align-self-center button">Copy Link</button>
-  // <div id='copyLinkInput' class='d-flex justify-content-center'>
-  // <input id='link' class='row d-flex' type='text' value='${data[i].images.original.url}'>
-  // </div>
-
+  // $('#newestGif').on('click', function() {
+  //   dateNewestGif();
+  //   appendGif(searchResults)
+  // })
 
   // Ready Close
 })
