@@ -62,7 +62,7 @@ $(function() {
   // Display Random option
   function displayRandomBox() {
     $('#selectFilter').css('display', 'none');
-    $('#queryBox').css('display', 'none').removeClass('translate, search');
+    $('#queryBox').css('display', 'none').removeClass('translate search');
     $('#limitBox').css('display', 'none').removeClass('search')
     $('#offsetBox').css('display', 'none');
     $('#ratingBox').css('display', 'inherit');
