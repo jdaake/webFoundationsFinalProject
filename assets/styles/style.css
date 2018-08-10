@@ -1,0 +1,434 @@
+ul {
+  list-style-type: square;
+}
+
+li {
+  margin-top: 7px;
+}
+
+body {
+  background-color: rgb(84, 86, 90) !important;
+}
+
+/* Logo */
+
+#bigLogo {
+  height: 115px;
+  width: 220px;
+  z-index: 1 !important;
+  margin-top: 60px;
+  margin-left: 10px;
+  display: block;
+}
+
+/* Font Headings and Content */
+
+.heading {
+  font-size: 30px;
+  color: rgb(219, 70, 26);
+  display: block;
+  font-family: 'Questrial', sans-serif;
+  z-index: 1;
+  margin-top: 60px;
+  font-style: italic;
+}
+
+.content {
+  font-family: 'Questrial', sans-serif !important;
+  font-size: 24px;
+}
+
+/* Navbar */
+
+#navLogo {
+  height: 50px;
+  width: 85px;
+}
+
+.navbar {
+  background-color: rgb(84, 86, 90) !important;
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navFont {
+  font-family: 'Questrial', sans-serif;
+  font-size: 24px;
+  color: white !important;
+}
+
+.navFont:hover {
+  font-style: italic;
+  color: rgb(219, 70, 26) !important;
+}
+
+.navFont.active {
+  color: rgb(219, 70, 26) !important;
+  transform: none;
+  font-style: normal !important;
+}
+
+/* Buttons */
+
+.button {
+  color: white !important;
+  background-color: rgb(219, 70, 26) !important;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: white !important;
+  color: rgb(219, 70, 26) !important;
+  border-color: rgb(219, 70, 26) !important
+}
+
+.button:active {
+  transform: translateY(2px);
+}
+
+.cancelButton {
+  background-color: rgb(84, 86, 90) !important;
+  color: white;
+  margin: 5px;
+}
+
+.cancelButton:hover {
+  background-color: white !important;
+  color: rgb(84, 86, 90) !important;
+  border-color: rgb(84, 86, 90) !important
+}
+
+.cancelButton:active {
+  transform: translateY(2px);
+}
+
+.formButton {
+  margin-top: 7px;
+}
+
+#submitButton {
+  margin-top: 20px;
+}
+
+#codeSubmitButton {
+  display: none;
+}
+
+/* Body */
+
+.background {
+  background-image: url("city.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  height: auto;
+  width: 100%;
+  height: 725px;
+}
+
+.sectionWhite {
+  width: 100%;
+  background-color: white;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.sectionGray {
+  width: 100%;
+  margin: auto;
+  background-color: rgb(186, 184, 184);
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.minHeight {
+  min-height: 350px;
+}
+
+/* Carousel */
+
+.boxRight {
+  height: 500px;
+  width: 100%;
+}
+
+.boxLeft {
+  height: 500px;
+  width: 100%;
+  font-size: 30px;
+  font-family: 'Questrial', sans-serif;
+  margin-top: 25px;
+}
+
+.carousel {
+  max-width: 700px;
+}
+
+.carouselSection {
+  width: auto;
+  margin: auto;
+}
+
+.aboutUsCarousel {
+  margin-top: 50px;
+}
+
+/* Cards */
+
+.card {
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  font-size: 24px;
+  font-family: 'Questrial', sans-serif;
+}
+
+.card-title {
+  color: rgb(219, 70, 26);
+  font-size: 24px;
+}
+
+.card-title-gif {
+  color: rgb(219, 70, 26);
+  font-size: 18px;
+}
+
+.reviewCard {
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: white;
+  font-size: 24px;
+  font-family: 'Questrial', sans-serif;
+  float: left;
+}
+
+.card-img-top {
+  max-width: 300px;
+  max-height: 250px;
+  margin-top: 15px;
+  border-radius: 15px;
+}
+
+.formCard {
+  margin: 70px 20px 0px 20px;
+}
+
+.errorCard {
+  border: 5px solid rgb(219, 70, 26);
+}
+
+/* Header Cards */
+
+.headerOne {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  color: rgb(219, 70, 26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  bottom: 85px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.headerTwo {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  color: rgb(219, 70, 26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  top: 85px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.headerThree {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  color: rgb(219, 70, 26);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  top: 30px;
+  max-width: 300px;
+  margin: auto;
+}
+
+/* Table */
+
+#productTableBox {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table {
+  font-size: 20px;
+  font-family: 'Questrial', sans-serif;
+}
+
+.tdGreen {
+  background-color: hsla(120, 100%, 50%, 0.3);
+}
+
+.tdRed {
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.tableHead {
+  background-color: rgb(219, 70, 26) !important;
+  color: white !important;
+}
+
+.deadTableHead {
+  background-color: rgb(186, 184, 184) !important;
+}
+
+/* Review Select */
+
+.select {
+  margin-top: 30px;
+}
+
+.selectLabel {
+  margin-right: 10px;
+}
+
+/* Review section margin */
+
+#reviews {
+  margin-top: 40px;
+}
+
+/* Gif Select */
+
+#buttonFilter {
+  margin-bottom: 40px;
+  display: inherit;
+}
+
+#selectFilter {
+  margin-top: -30px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+/* Login */
+
+#login {
+  display: none;
+}
+
+.loginBox {
+  margin-top: 100px;
+  max-width: 325px;
+  height: 175px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: inherit;
+}
+
+#error {
+  max-width: 525px;
+  display: none;
+  margin-top: 100px;
+}
+
+.twoFactAuth {
+  display: none;
+}
+
+/* Search Form */
+
+.searchForm {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.formLabel {
+  margin-right: 10px;
+}
+
+.formSelect {
+  margin-top: 7px;
+}
+
+#queryBox {
+  display: none;
+}
+
+#limitBox {
+  display: none;
+}
+
+#offsetBox {
+  display: none;
+}
+
+#ratingBox {
+  display: none;
+}
+
+#langBox {
+  display: none;
+}
+
+#tagBox {
+  display: none;
+}
+
+#formButtons {
+  display: none;
+}
+
+/* Footer */
+
+#footer {
+  width: 100%;
+  height: 160px;
+  background-color: rgb(84, 86, 90);
+}
+
+.footerImage {
+  margin-top: 25px;
+}
+
+.footerUL {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.footerList {
+  list-style-type: none;
+  font-family: 'Questrial', sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footerList:hover {
+  color: rgb(219, 70, 26);
+  text-decoration: none;
+}
+
+.address {
+  font-family: 'Questrial', sans-serif;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Modal */
+
+.textArea {
+  margin-top: 10px;
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Login</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!-- Google Questrial Font -->
+  <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="../assets/styles/style.css" type="text/css">
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <img class="navbar-brand " id="navLogo" src="http://daake.com/wp-content/uploads/2018/04/Daake_Logo_RGB.png " href="index.html ">
+    <button class="navbar-toggler " type="button " data-toggle="collapse " data-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent ">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item ">
+          <a id="homeButton" class="nav-link navFont " href="../index/index.html ">Home <span class="sr-only ">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a id="aboutButton" class="nav-link navFont  " href="../about/about.html">About</a>
+        </li>
+        <li class="nav-item ">
+          <a id="libraryButton" class="nav-link navFont " href="../library/library.html ">Library</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav" float-right>
+        <li class="nav-item ">
+          <a id="loginButton" class="nav-link navFont float-right active" href="#">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- First Section -->
+  <div class="background">
+    <div class="d-flex">
+      <img src="../assets/img/daakeLogo.png " id="bigLogo">
+      <div class="float-right">
+        <div class="heading">Digital design services that<br> keep up with your evolving world.</div>
+      </div>
+    </div>
+    <!-- Login box -->
+    <div id="loginBox" class="container-fluid">
+      <div class="container loginBox d-flex align-items-center">
+        <form class="formStyling container" action="../index.html" method="post">
+          <div class="username">
+            <label for="">Email:</label>
+            <input class="input float-right" type="email" placeholder="email" value="" id="emailAddress">
+          </div>
+          <div class="password">
+            <label for="">Password:</label>
+            <input class="input float-right " type="password" placeholder="password" value="" id="pass">
+          </div>
+          <div class="twoFactAuth">
+            <label for="">Code:</label>
+            <input class="input float-right " type="text" placeholder="" value="" id="auth">
+          </div>
+          <div class="container d-flex justify-content-center">
+            <button id='loginSubmit' class="btn button formButton" type="submit">Submit</button>
+            <button id='codeSubmitButton' class="btn button formButton">Verify Code</button>
+            <button class="btn cancelButton loginCancel formButton">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Error Container -->
+    <div id="error" class="align-items-center container">
+      <div class="container">
+        <div class="card errorCard">
+          <div class="card-body justify-content-center">
+            <div class="text-center justify-content-center">Username or Password is incorrect. Please try again.
+            </div>
+            <div class="container d-flex justify-content-center">
+              <button id='tryAgain' class="btn button formButton" type="button">Try Again</button>
+              <button class="btn cancelButton loginCancel formButton">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer" class="container-fluid">
+    <!-- Logo -->
+    <img src="../assets/img/daakeLogo.png" class="float-right footerImage">
+    <div class="d-flex justify-content-start float-left">
+      <ul class="footerUL">
+        <li><a class="footerList" href="../index/index.html">Home</a></li>
+        <li><a class="footerList" href="../about/about.html">About</a></li>
+        <li><a class="footerList" href="mailto:example@example.com">Contact</a></li>
+        <li><a class="footerList" href="#" data-toggle="modal" data-target="#feedbackModal">Leave Feedback</a></li>
+      </ul>
+    </div>
+    <!-- Address -->
+    <div class="d-flex justify-content-center">
+      <p class="address">12345 Dodge Street<br>Suite 5000<br>Omaha, NE 68135<br>402.555.5555</p>
+    </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">We'd love to hear from you.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+          <form class="formStyling container" method="post">
+            <div class="d-flex justify-content-center">
+              <div class="firstName">
+                <label for="fullName">Name:</label>
+                <input class="input" type="text" placeholder="Name">
+              </div>
+              <div class="email">
+                <label for="email">Email:</label>
+                <input class="input" type="email" placeholder="Email">
+              </div>
+            </div>
+            <br>
+            <labelfor="stars">Rate us!</label>
+              <select>
+              <option>5 stars</option>
+              <option>4 stars</option>
+              <option>3 stars </option>
+              <option>2 stars</option>
+              <option>1 star</option>
+            </select>
+              <br>
+              <label class="textArea clearfix" for="">Tell us what you think.</label>
+              <textarea rows='4' cols='50' placeholder="Comments"></textarea>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn cancelButton" data-dismiss="modal">Close</button>
+          <button type="button" class="btn button">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
+
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+
+  <!-- Javascript -->
+  <script src='../javascript/index.js'></script>
+  <script src='../javascript/about.js'></script>
+  <script src='../javascript/login.js'></script>
+  <script src='../javascript/library.js'></script>
+
+
+</body>
+
+</html>
