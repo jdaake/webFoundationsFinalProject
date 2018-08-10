@@ -74,7 +74,8 @@ $(function() {
   // Search Request
   $('#searchSearchButton').on('click', function() {
     event.preventDefault();
-
+    // Reset Sort Select
+    $('#sortSelect').prop('selectedIndex', 0);
     // Search Endpoint
     if ($('#limitBox').hasClass('search')) {
       if ($('#searchQuery').val() == '') {
