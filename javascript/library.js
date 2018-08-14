@@ -12,7 +12,7 @@ $(function() {
   }
 
   // Logout button
-  $('#logoutButton').on('click', function() {
+  $('#logoutButton').on('click', (e) => {
     event.preventDefault();
     localStorage.clear();
     location.href = '../login/login.html';
@@ -40,7 +40,7 @@ $(function() {
   });
 
   // Display Search option
-  function displaySearchBox() {
+   displaySearchBox = () =>  {
     $('#queryBox').css('display', 'inherit').removeClass('translate');
     $('#limitBox').css('display', 'inherit').addClass('search');
     $('#offsetBox').css('display', 'inherit');
@@ -51,7 +51,7 @@ $(function() {
   }
 
   // Display Translate option
-  function displayTranslateBox() {
+  displayTranslateBox = () => {
     $('#selectFilter').css('display', 'none');
     $('#queryBox').css('display', 'inherit').addClass('translate');
     $('#limitBox').css('display', 'none').removeClass('search');
@@ -63,7 +63,7 @@ $(function() {
   }
 
   // Display Random option
-  function displayRandomBox() {
+  displayRandomBox = () => {
     $('#selectFilter').css('display', 'none');
     $('#queryBox').css('display', 'none').removeClass('translate search');
     $('#limitBox').css('display', 'none').removeClass('search');
@@ -75,8 +75,8 @@ $(function() {
   }
 
   // Search Request
-  $('#searchSearchButton').on('click', function() {
-    event.preventDefault();
+  $('#searchSearchButton').on('click', (e) => {
+    e.preventDefault();
 
     // Reset borders on required fields
     $('#searchQuery').css('border', '1px solid lightgray');
@@ -90,7 +90,7 @@ $(function() {
         $('#searchQuery').css('border', '2px solid red');
       } else {
         $('#selectFilter').css('display', 'inherit');
-        $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&q=${$('#searchQuery').val()}&limit=${$('#searchLimit').val()}&offset=${$('#searchOffset').val()}&rating=${$('#searchRating').val()}&lang=${$('#searchLang').val()}`, function(data) {
+        $.getJSON(`https://api.giphy.com/v1/gifs/search?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&q=${$('#searchQuery').val()}&limit=${$('#searchLimit').val()}&offset=${$('#searchOffset').val()}&rating=${$('#searchRating').val()}&lang=${$('#searchLang').val()}`, (data) => {
             searchResults = data.data;
             appendGif(searchResults);
           })
@@ -109,7 +109,7 @@ $(function() {
       if ($('#searchQuery').val() == '') {
         $('#searchQuery').css('border', '2px solid red');
       } else {
-        $.getJSON(`https://api.giphy.com/v1/gifs/translate?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&s=${$('#searchQuery').val()}`, function(data) {
+        $.getJSON(`https://api.giphy.com/v1/gifs/translate?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&s=${$('#searchQuery').val()}`, (data) => {
             searchResults = data;
             appendGif(searchResults);
           })
@@ -128,7 +128,7 @@ $(function() {
       if ($('#searchTag').val() == '') {
         $('#searchTag').css('border', '2px solid red');
       } else {
-        $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&tag=${$('#searchTag').val()}&rating=${$('#searchRating').val()}`, function(data) {
+        $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&tag=${$('#searchTag').val()}&rating=${$('#searchRating').val()}`, (data) => {
             searchResults = data;
             appendGif(searchResults);
           })
@@ -144,7 +144,7 @@ $(function() {
   });
 
   // Append data
-  function appendGif(data) {
+   appendGif = (data) => {
     $('#searchResults').empty();
     for (var i in data) {
       // Convert date and time
@@ -191,43 +191,43 @@ $(function() {
   // Sorting functions
 
   // Sort A to Z
-  function titleAscending() {
-    searchResults.sort(function(a, b) {
+  titleAscending = () => {
+    searchResults.sort((a, b) => {
       return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
     });
   }
 
   // Sort Z to A
-  function titleDescending() {
-    searchResults.sort(function(a, b) {
+  titleDescending = () => {
+    searchResults.sort((a, b) => {
       return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
     });
   }
 
   // Sort by Rating Ascending
-  function ratingAscending() {
-    searchResults.sort(function(a, b) {
+  ratingAscending = () => {
+    searchResults.sort((a, b) => {
       return a.rating.toLowerCase() > b.rating.toLowerCase() ? 1 : -1;
     });
   }
 
   // Sort by Rating descending
-  function ratingDescending() {
-    searchResults.sort(function(a, b) {
+  ratingDescending = () => {
+    searchResults.sort((a, b) => {
       return a.rating.toLowerCase() > b.rating.toLowerCase() ? -1 : 1;
     });
   }
 
   // Sort by Oldest Date
-  function dateOldestGif() {
-    searchResults.sort(function(a, b) {
+  dateOldestGif = () => {
+    searchResults.sort((a, b) => {
       return new Date(a.import_datetime) > new Date(b.import_datetime) ? 1 : -1;
     });
   }
 
   // Sort by Newest Date
-  function dateNewestGif() {
-    searchResults.sort(function(a, b) {
+  dateNewestGif = () => {
+    searchResults.sort((a, b) => {
       return new Date(a.import_datetime) > new Date(b.import_datetime) ? -1 : 1;
     });
   }
