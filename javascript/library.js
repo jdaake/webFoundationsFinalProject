@@ -15,13 +15,13 @@ $(function() {
   $('#logoutButton').on('click', function() {
     event.preventDefault();
     localStorage.clear();
-    location.href = '../login/login.html'
-  })
+    location.href = '../login/login.html';
+  });
 
   // Cancel button
   $('.libraryCancelButton').on('click', function() {
     $('#formOptions').empty();
-  })
+  });
 
   // Endpoint display
   $('#endpoint').on('change', function() {
@@ -37,7 +37,7 @@ $(function() {
       $('#searchTag').css('border', '1px solid lightgray');
       displayRandomBox();
     }
-  })
+  });
 
   // Display Search option
   function displaySearchBox() {
@@ -66,7 +66,7 @@ $(function() {
   function displayRandomBox() {
     $('#selectFilter').css('display', 'none');
     $('#queryBox').css('display', 'none').removeClass('translate search');
-    $('#limitBox').css('display', 'none').removeClass('search')
+    $('#limitBox').css('display', 'none').removeClass('search');
     $('#offsetBox').css('display', 'none');
     $('#ratingBox').css('display', 'inherit');
     $('#langBox').css('display', 'none');
@@ -126,7 +126,7 @@ $(function() {
     // Random Endpoint
     if ($('#tagBox').hasClass('random')) {
       if ($('#searchTag').val() == '') {
-        $('#searchTag').css('border', '2px solid red')
+        $('#searchTag').css('border', '2px solid red');
       } else {
         $.getJSON(`https://api.giphy.com/v1/gifs/random?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&tag=${$('#searchTag').val()}&rating=${$('#searchRating').val()}`, function(data) {
             searchResults = data;
@@ -141,17 +141,17 @@ $(function() {
           });
       }
     }
-  })
+  });
 
   // Append data
   function appendGif(data) {
     $('#searchResults').empty();
-    for (i in data) {
+    for (var i in data) {
       // Convert date and time
       var event = new Date(data[i].import_datetime);
       event = event.toLocaleString('en-US', {
         timeZone: 'UTC'
-      })
+      });
       event = event.split(',')[0];
 
       // Append GIF cards
@@ -163,10 +163,10 @@ $(function() {
         <h6 class="card-subtitle mb-2 d-flex text-center justify-content-center">Date Added: ${event}</h6>
         <h6 class="card-subtitle mb-2 d-flex text-center justify-content-center">Rated: ${data[i].rating}</h6>
         <div class="card-body row d-flex justify-content-center">
-        <a href="${data[i].url}" target='_blank'class=" btn mt-auto align-self-center button">View Site</a>
+        <a href="${data[i].url}" target='_blank' class=" btn mt-auto align-self-center button">View Site</a>
         </div>
         </div>
-        </div>`)
+        </div>`);
     }
   }
 
@@ -186,7 +186,7 @@ $(function() {
       dateOldestGif();
     }
     appendGif(searchResults);
-  })
+  });
 
   // Sorting functions
 
@@ -194,42 +194,42 @@ $(function() {
   function titleAscending() {
     searchResults.sort(function(a, b) {
       return a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1;
-    })
+    });
   }
 
   // Sort Z to A
   function titleDescending() {
     searchResults.sort(function(a, b) {
       return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
-    })
+    });
   }
 
   // Sort by Rating Ascending
   function ratingAscending() {
     searchResults.sort(function(a, b) {
-      return a.rating.toLowerCase() > b.rating.toLowerCase() ? 1 : -1
-    })
+      return a.rating.toLowerCase() > b.rating.toLowerCase() ? 1 : -1;
+    });
   }
 
   // Sort by Rating descending
   function ratingDescending() {
     searchResults.sort(function(a, b) {
-      return a.rating.toLowerCase() > b.rating.toLowerCase() ? -1 : 1
-    })
+      return a.rating.toLowerCase() > b.rating.toLowerCase() ? -1 : 1;
+    });
   }
 
   // Sort by Oldest Date
   function dateOldestGif() {
     searchResults.sort(function(a, b) {
-      return new Date(a.import_datetime) > new Date(b.import_datetime) ? 1 : -1
-    })
+      return new Date(a.import_datetime) > new Date(b.import_datetime) ? 1 : -1;
+    });
   }
 
   // Sort by Newest Date
   function dateNewestGif() {
     searchResults.sort(function(a, b) {
-      return new Date(a.import_datetime) > new Date(b.import_datetime) ? -1 : 1
-    })
+      return new Date(a.import_datetime) > new Date(b.import_datetime) ? -1 : 1;
+    });
   }
 
   // Sort on click functions - Used for sort buttons.
@@ -271,5 +271,5 @@ $(function() {
   // })
 
   // Ready Close
-})
+});
 //

@@ -21,4 +21,4 @@ $('#logoutButton').on('click', function(){
 
   // Ready function close
 })
-// Ready funciton close
+// Ready function close

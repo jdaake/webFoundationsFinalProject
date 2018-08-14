@@ -16,7 +16,7 @@ $(function() {
   $('#logoutButton').on('click', function(){
     event.preventDefault();
     localStorage.clear();
-    location.href = '../index/index.html'
+    location.href = '../index.html'
   })
 
 // JSON users
