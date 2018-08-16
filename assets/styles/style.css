@@ -21,11 +21,14 @@ body {
   display: block;
 }
 
-/* Font Headings and Content */
+/* Font Headings, Content, and Color */
 
+.brandColor {
+  color: rgb(219, 70, 26);
+
+}
 .heading {
   font-size: 30px;
-  color: rgb(219, 70, 26);
   display: block;
   font-family: 'Questrial', sans-serif;
   z-index: 1;
@@ -48,7 +51,6 @@ body {
 .navbar {
   background-color: rgb(84, 86, 90) !important;
   position: fixed;
-  height: 50px;
   width: 100%;
   z-index: 2;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -159,12 +161,10 @@ body {
 /* Carousel */
 
 .boxRight {
-  height: 500px;
   width: 100%;
 }
 
 .boxLeft {
-  height: 500px;
   width: 100%;
   font-size: 30px;
   font-family: 'Questrial', sans-serif;
@@ -192,15 +192,14 @@ body {
   background-color: white;
   font-size: 24px;
   font-family: 'Questrial', sans-serif;
+  margin-bottom: 10px;
 }
 
 .card-title {
-  color: rgb(219, 70, 26);
   font-size: 24px;
 }
 
 .card-title-gif {
-  color: rgb(219, 70, 26);
   font-size: 18px;
 }
 
@@ -217,8 +216,8 @@ body {
 }
 
 .card-img-top {
-  max-width: 300px;
-  max-height: 250px;
+  /* max-width: 300px;
+  max-height: 250px; */
   margin-top: 15px;
   border-radius: 15px;
 }
@@ -231,13 +230,19 @@ body {
   border: 5px solid rgb(219, 70, 26);
 }
 
+.endpointLabel {
+  margin-top: 15px; 
+  margin-right: 15px;
+}
+.endpoint {
+  margin: 10px;
+}
 /* Header Cards */
 
 .headerOne {
   position: relative;
   background: white;
   border-radius: 10px;
-  color: rgb(219, 70, 26);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   bottom: 85px;
   max-width: 300px;
@@ -248,7 +253,6 @@ body {
   position: relative;
   background: white;
   border-radius: 10px;
-  color: rgb(219, 70, 26);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   top: 85px;
   max-width: 300px;
@@ -259,7 +263,6 @@ body {
   position: relative;
   background: white;
   border-radius: 10px;
-  color: rgb(219, 70, 26);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   top: 30px;
   max-width: 300px;
@@ -358,11 +361,16 @@ table {
 
 /* Search Form */
 
+.searchItems, .randomItems, .translateItems {
+  display.: none;
+}
+
 .searchForm {
   margin-top: 25px;
 }
 
 .formLabel {
+  margin-top: 0px;
   margin-right: 10px;
 }
 
@@ -370,33 +378,10 @@ table {
   margin-top: 7px;
 }
 
-#queryBox {
+#queryBox, #limitBox, #offsetBox, #ratingBox, #langBox, #tagBox, #formButtons {
   display: none;
 }
 
-#limitBox {
-  display: none;
-}
-
-#offsetBox {
-  display: none;
-}
-
-#ratingBox {
-  display: none;
-}
-
-#langBox {
-  display: none;
-}
-
-#tagBox {
-  display: none;
-}
-
-#formButtons {
-  display: none;
-}
 
 /* Footer */
 

@@ -1,28 +1,21 @@
-$(function() {
+$(function () {
 
-// Local Storage
-if (localStorage.getItem('user')) {
+  // Local Storage
+  if (localStorage.getItem('user')) {
     $('#loginButton').css('display', 'none');
-    $("#logoutButton").css('display', 'inherit');
     $('#libraryButton').css('visibility', 'visible');
-  }
-  else {
+    // window.location.href = '../library/library.html'
+  } else {
     $("#logoutButton").css('display', 'none');
-    $('#loginButton').css('display', 'inherit');
     $('#libraryButton').css('display', 'none');
   }
-  
-  // Logout button function
-  $('#logoutButton').on('click', function(){
-    event.preventDefault();
-    localStorage.clear();
-    location.href = 'index.html'
+
+  // Posting feedback to console
+  $('#feedbackButton').on('click', (e) => {
+    let name = $('#feedbackName').val();
+    let email = $('#feedbackEmail').val();
+    let stars = $('#stars').val();
+    let feedback = $('#textArea').val();
+    console.log(name, email, stars, feedback);
   })
-
-
-
-
-
-
-
 })

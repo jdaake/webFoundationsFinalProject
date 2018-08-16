@@ -1,26 +1,9 @@
 
 $(function() {
 
-  // Local storage
-  if (localStorage.getItem('user')) {
-    $('#loginButton').css('display', 'none');
-    $("#logoutButton").css('display', 'inherit');
-    $('#libraryButton').css('visibility', 'visible');
-  }
-  else {
-    $("#logoutButton").css('display', 'none');
-    $('#loginButton').css('display', 'inherit');
-    $('#libraryButton').css('display', 'none');
-  }
-
-  $('#logoutButton').on('click', function(){
-    event.preventDefault();
-    localStorage.clear();
-    location.href = '../index.html'
-  })
 
 // JSON users
-  var userReviews = [{
+  const userReviews = [{
       "name": "Dragan Perković",
       "rating": 2,
       "reviewDate": "03/12/2018",
@@ -66,7 +49,7 @@ $(function() {
       "name": "Edvin Nordström",
       "rating": 4,
       "reviewDate": "07/15/2018",
-      "comments": "Easy to use, highly reccomended."
+      "comments": "Easy to use, highly recommended."
     },
     {
       "name": "Anisa Lind",
@@ -113,51 +96,60 @@ $(function() {
   ];
 
   // Split names
-  var mapNames = userReviews.map(function(firstName) {
+  let mapNames = userReviews.map((firstName) => {
     firstName.name = firstName.name.split(' ')[0];
     return firstName;
   })
 
   // Filter ratings
-  var ratings = userReviews.filter(function(stars) {
+  let ratings = userReviews.filter((stars) => {
     return stars.rating > 2;
   })
 
-  // Default Sort Ratings - Descending
-  ratings.sort(function(a, b) {
-    return b.rating - a.rating;
-  })
-
   // Sort by the number of stars - Descending
-  function sortByRatingDescending() {
-    ratings.sort(function(a, b) {
+  sortByRatingDescending = () => {
+    ratings.sort((a, b) => {
       return b.rating - a.rating;
     })
   }
 
   // Sort by the number of stars - Ascending
-  function sortByRatingAscending() {
-    ratings.sort(function(a, b) {
+  sortByRatingAscending = () => {
+    ratings.sort((a, b) => {
       return a.rating - b.rating;
     })
   }
 
   // Sort by review date - Descending
-  function sortByDateDescending() {
-    ratings.sort(function(a, b) {
+  sortByDateDescending = () => {
+    ratings.sort((a, b) => {
       return new Date(a.reviewDate) > new Date(b.reviewDate) ? -1 : 1;
     })
   }
   // Sort by review date - Aescending
-  function sortByDateAscending() {
-    ratings.sort(function(a, b) {
+  sortByDateAscending = () => {
+    ratings.sort((a, b) => {
       return new Date(a.reviewDate) > new Date(b.reviewDate) ? 1 : -1;
     })
   }
 
+  // Default Append Review
+  appendRating = () => {
+    for (var i in ratings) {
+      $('#reviews').append(`<div class="card reviewCard col-lg-3 col-md-4 col-sm-12">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title brandColor">${ratings[i].rating} stars</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${ratings[i].name} | ${ratings[i].reviewDate}</h6>
+    <p class="card-text">${ratings[i].comments}</p>
+  </div>
+</div>`)
+    }
+};
+
   // Change Sort By function
 
   $('#select').on('change', function() {
+
     $('#reviews').empty();
 
     if ($(this).val() == 'highestRating') {
@@ -174,20 +166,9 @@ $(function() {
     }
     appendRating();
   })
+  sortByRatingDescending();
   appendRating();
 
-  // Default Append Review
-  function appendRating() {
-    for (var i in ratings) {
-      $('#reviews').append(`<div class="card reviewCard col-3">
-  <div class="card-body d-flex flex-column">
-    <h5 class="card-title">${ratings[i].rating} stars</h5>
-    <h6 class="card-subtitle mb-2 text-muted">${ratings[i].name} | ${ratings[i].reviewDate}</h6>
-    <p class="card-text">${ratings[i].comments}</p>
-  </div>
-</div>`)
-    }
-};
 
   // Ready closure
 })

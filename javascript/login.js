@@ -1,4 +1,8 @@
-$(function() {
+$(function () {
+
+  if (localStorage.getItem('user')) {
+    window.location.href = '../library/library.html';
+  }
 
   const USERS = [{
       email: "steveg@example.com",
@@ -40,38 +44,37 @@ $(function() {
 
 
   // Verify email and password and store in localStorage
-  var verified = false
+  let verified = false
 
-  $("#loginSubmit").on('click', function() {
+  $("#loginSubmit").on('click', (e) => {
     event.preventDefault();
     for (i in USERS) {
-      if ($('#emailAddress').val() == USERS[i].email && $('#pass').val() ===USERS[i].password) {
+      if ($('#emailAddress').val() === USERS[i].email && $('#pass').val() === USERS[i].password) {
         twoFactAuth();
-        verified = true
+        return;
       }
     }
-    if (verified == false) {
+    for (i in USERS) {
+      if ($('#emailAddress').val() !== USERS[i].email && $('#pass').val() !== USERS[i].password) {
         $('#loginBox').css('display', 'none');
         $('#error').fadeIn(500).css('display', 'inherit');
       }
+    }
   })
 
   // Two-factor authentication function
-  var code;
+  let code;
 
-  function twoFactAuth() {
+  twoFactAuth = () => {
     code = Math.floor(Math.random() * 900000) + 100000;
     $('#loginSubmit').prop('disabled', true);
-    $('#loginSubmit').css('display', 'none');
-    $('.username').css('display', 'none');
-    $('.password').css('display', 'none');
+    $('.login').css('display', 'none');
     $('.twoFactAuth').css('display', 'inherit');
-    $('#codeSubmitButton').css('display', 'inherit');
     console.log(code)
   }
 
   // Submit code function
-  $('#codeSubmitButton').on('click', function() {
+  $('#codeSubmitButton').on('click', (e) => {
     event.preventDefault();
     if ($('#auth').val() == code) {
       localStorage.setItem('user', JSON.stringify(USERS[i]));
@@ -84,7 +87,7 @@ $(function() {
   })
 
   // Try Again button
-  $('.tryAgain').on('click', function() {
+  $('.tryAgain').on('click', (e) => {
     $('#pass').val('');
     $('#emailAddress').val('');
     $('#auth').val('');
@@ -101,9 +104,9 @@ $(function() {
   })
 
   // Cancel button
-  $('.loginCancel').on('click', function() {
+  $('.loginCancel').on('click', (e) => {
     event.preventDefault();
-    location.href = '../index/index.html'
+    location.href = '../index.html'
   })
 
   // Ready Close
