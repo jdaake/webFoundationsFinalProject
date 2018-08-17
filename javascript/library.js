@@ -60,8 +60,8 @@ $(function () {
     $('#searchTag').css('border', '1px solid lightgray');
 
     // getJSON Function
-    getJSON = (jsonClass, searchString) => {
-      $.getJSON(`https://api.giphy.com/v1/gifs/${jsonClass}?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&${searchString}`, (data) => {
+    getJSON = (endpoint, searchString) => {
+      $.getJSON(`https://api.giphy.com/v1/gifs/${endpoint}?api_key=bRKQsfkBVYaGT5PT3sq4F46o5xO1VFHT&${searchString}`, (data) => {
         // Check to see if response is an array.
         if (Array.isArray(data.data)) {
           searchResults = data.data;
@@ -76,25 +76,25 @@ $(function () {
 
     if ($('#endpoint').hasClass('search')) {
       if ($('#searchQuery').val() !== '') {
-        jsonClass = 'search';
+        endpoint = 'search';
         searchString = `q=${$('#searchQuery').val()}&limit=${$('#searchLimit').val()}&offset=${$('#searchOffset').val()}&rating=${$('#searchRating').val()}&lang=${$('#searchLang').val()}`;
-        getJSON(jsonClass, searchString);
+        getJSON(endpoint, searchString);
       } else if ($('#searchQuery').val() == '') {
         $('#searchQuery').css('border', '2px solid red');
       }
     } else if ($('#endpoint').hasClass('translate')) {
       if ($('#searchQuery').val() !== '') {
-        jsonClass = 'translate';
+        endpoint = 'translate';
         searchString = `s=${$('#searchQuery').val()}`;
-        getJSON(jsonClass, searchString);
+        getJSON(endpoint, searchString);
       } else if ($('#searchQuery').val() == '') {
         $('#searchQuery').css('border', '2px solid red');
       }
     } else if ($('#endpoint').hasClass('random')) {
       if ($('#searchTag').val() !== '') {
-        jsonClass = 'random';
+        endpoint = 'random';
         searchString = `tag=${$('#searchTag').val()}&rating=${$('#searchRating').val()}`;
-        getJSON(jsonClass, searchString);
+        getJSON(endpoint, searchString);
       } else if ($('#searchTag').val() == '') {
         $('#searchTag').css('border', '2px solid red');
       }
@@ -103,7 +103,7 @@ $(function () {
 
   // Append data
   appendGif = (data) => {
-    // Clear resultt
+    // Clear results
     $('#searchResults').empty();
     // Add border
     $('.bottomBorder').css('border-bottom', '5px inset lightgray');

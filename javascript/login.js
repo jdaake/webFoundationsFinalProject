@@ -45,13 +45,13 @@ $(function () {
   $("#loginSubmit").on('click', (e) => {
     event.preventDefault();
     // Verify email address and password match a user
-    for (var i in USERS) {
+    for (i in USERS) {
       if ($('#emailAddress').val() === USERS[i].email && $('#pass').val() === USERS[i].password) {
         twoFactAuth();
         return;
       }
     }
-    for (var i in USERS) {
+    for (i in USERS) {
       if ($('#emailAddress').val() !== USERS[i].email && $('#pass').val() !== USERS[i].password) {
         $('#loginBox').css('display', 'none');
         $('#error').fadeIn(500).css('display', 'inherit');
