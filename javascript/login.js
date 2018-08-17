@@ -40,25 +40,24 @@ $(function () {
       birthday: "1995-06-06 00:00:00",
       role: "advanced"
     }
-  ]
+  ];
 
   $("#loginSubmit").on('click', (e) => {
     event.preventDefault();
     // Verify email address and password match a user
-    for (i in USERS) {
+    for (var i in USERS) {
       if ($('#emailAddress').val() === USERS[i].email && $('#pass').val() === USERS[i].password) {
         twoFactAuth();
         return;
       }
     }
-    for (i in USERS) {
+    for (var i in USERS) {
       if ($('#emailAddress').val() !== USERS[i].email && $('#pass').val() !== USERS[i].password) {
         $('#loginBox').css('display', 'none');
         $('#error').fadeIn(500).css('display', 'inherit');
-        return;
       }
     }
-  })
+  });
 
   // Two-factor authentication function
   let code;
@@ -73,7 +72,7 @@ $(function () {
     // Display code box
     $('.twoFactAuth').css('display', 'inherit');
     console.log(code);
-  }
+  };
 
   // Submit code function
   $('#codeSubmitButton').on('click', (e) => {
@@ -86,7 +85,7 @@ $(function () {
       $('#loginBox').css('display', 'none');
       $('#codeError').fadeIn(500).css('display', 'inherit');
     }
-  })
+  });
 
   // Try Again button
   $('.tryAgain').on('click', (e) => {
@@ -102,14 +101,14 @@ $(function () {
     $('.login').css('display', 'inherit');
     // Enable login submit button.
     $('#loginSubmit').prop('disabled', false);
-  })
+  });
 
   // Cancel button
   $('.loginCancel').on('click', (e) => {
     event.preventDefault();
-    location.href = '../index.html'
-  })
+    location.href = '../index.html';
+  });
 
   // Ready Close
-})
+});
 //

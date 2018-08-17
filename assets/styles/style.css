@@ -350,7 +350,7 @@ table {
 .searchItems,
 .randomItems,
 .translateItems {
-  display.: none;
+  display: none;
 }
 
 .searchForm {

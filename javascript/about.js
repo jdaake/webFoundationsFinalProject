@@ -1,12 +1,5 @@
 $(function () {
 
-  // Logout button function
-  $('#logoutButton').on('click', (e) => {
-    event.preventDefault();
-    localStorage.clear();
-    location.href = '../login/login.html'
-  })
-
   // JSON users
   const userReviews = [{
       "name": "Dragan Perković",
@@ -104,39 +97,39 @@ $(function () {
   let mapNames = userReviews.map((firstName) => {
     firstName.name = firstName.name.split(' ')[0];
     return firstName;
-  })
+  });
 
   // Filter ratings
   let ratings = userReviews.filter((stars) => {
     return stars.rating > 2;
-  })
+  });
 
   // Sort by the number of stars - Descending
   sortByRatingDescending = () => {
     ratings.sort((a, b) => {
       return b.rating - a.rating;
-    })
-  }
+    });
+  };
 
   // Sort by the number of stars - Ascending
   sortByRatingAscending = () => {
     ratings.sort((a, b) => {
       return a.rating - b.rating;
-    })
-  }
+    });
+  };
 
   // Sort by review date - Descending
   sortByDateDescending = () => {
     ratings.sort((a, b) => {
       return new Date(a.reviewDate) > new Date(b.reviewDate) ? -1 : 1;
-    })
-  }
+    });
+  };
   // Sort by review date - Aescending
   sortByDateAscending = () => {
     ratings.sort((a, b) => {
       return new Date(a.reviewDate) > new Date(b.reviewDate) ? 1 : -1;
-    })
-  }
+    });
+  };
 
   // Default Append Review
   appendRating = () => {
@@ -147,7 +140,7 @@ $(function () {
     <h6 class="card-subtitle mb-2 text-muted">${ratings[i].name} | ${ratings[i].reviewDate}</h6>
     <p class="card-text">${ratings[i].comments}</p>
   </div>
-</div>`)
+</div>`);
     }
   };
 
@@ -167,11 +160,11 @@ $(function () {
       sortByDateAscending();
     }
     appendRating();
-  })
+  });
   sortByRatingDescending();
   appendRating();
 
 
   // Ready closure
-})
+});
 // Ready closure
