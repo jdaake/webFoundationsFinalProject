@@ -1,8 +1,13 @@
+$(function () {
 
-$(function() {
+  // Logout button function
+  $('#logoutButton').on('click', (e) => {
+    event.preventDefault();
+    localStorage.clear();
+    location.href = '../login/login.html'
+  })
 
-
-// JSON users
+  // JSON users
   const userReviews = [{
       "name": "Dragan Perković",
       "rating": 2,
@@ -144,24 +149,21 @@ $(function() {
   </div>
 </div>`)
     }
-};
+  };
 
   // Change Sort By function
 
-  $('#select').on('change', function() {
+  $('#select').on('change', function () {
 
     $('#reviews').empty();
 
     if ($(this).val() == 'highestRating') {
       sortByRatingDescending();
-    }
-    else if ($(this).val() == 'lowestRating') {
+    } else if ($(this).val() == 'lowestRating') {
       sortByRatingAscending();
-    }
-    else if ($(this).val() == 'mostRecent') {
+    } else if ($(this).val() == 'mostRecent') {
       sortByDateDescending();
-    }
-    else if ($(this).val() == 'oldest') {
+    } else if ($(this).val() == 'oldest') {
       sortByDateAscending();
     }
     appendRating();

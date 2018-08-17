@@ -27,7 +27,7 @@ super nitpicky but your front page of a site should always be in the top level f
 <!-- * So basically what the above does is it keeps the login and logout to the right with the ml-auto on the ul tag (therby not needing the float-right classes). By removing the top and bottom margins and padding it keeps the menu to the same size as it was before (the 50px). By removing the trailing spaces it allows for the dropdown menu button to function. The text-center makes it a cleaner look when the dropdown mobilem menu is open. And finally removing the height: 50px allows for the background to dropdown when the mobile menu opens up. -->
 <!-- * You're importing all of your javascript tags at the bottom of your body. This is completely acceptable for the about.js/index.js etc. As a best practice though, load all prereqs such as jQuery, popper, and bootstrap.js in the head. If you wrap your js file in a $(document).ready() you can also load those files (index.js etc) in the head. -->
 
-- I'll probably mention it again in the js/functionality section but make sure you're not just hiding the login/logout buttons. I would suggest completely removing them in their entirety from the DOM.
+<!-- - I'll probably mention it again in the js/functionality section but make sure you're not just hiding the login/logout buttons. I would suggest completely removing them in their entirety from the DOM. -->
   <!-- * For the feedback form on all pages I would recommend having the text area line up on the right side with the email input so the end of each box are directly inline. This would help maintain the clean look you have going through the rest of the page.
 - Also on the feedback form, from a UX standpoint I would recommend changing "Save Changes" to say "Submit Feedback" and ensure that when the button is clicked it closes the modal. -->
 
@@ -53,9 +53,10 @@ super nitpicky but your front page of a site should always be in the top level f
 
 ### All Pages
 
-- Take a look at some of the classes you have in your css and some of the selectors. You have a lot of repetetive declarations such as all of the queryBox, langBox etc having the same declaration. If you wanted to you could make a custom class or use the d-none class from bootstrap to accomplish that.
+<!-- - Take a look at some of the classes you have in your css and some of the selectors. You have a lot of repetitive declarations such as all of the queryBox, langBox etc having the same declaration. If you wanted to you could make a custom class or use the d-none class from bootstrap to accomplish that. -->
+
 - There are a lot of overlap with existing bootstrap classes for some of your declarations as well.
-  <!-- * When you're using things like `color: rgb(219, 70, 26);` in different selectors (shows up 6x in your CSS) you're probably better off making it a sepearate class and adding it where it makes the most sense. -->
+  <!-- * When you're using things like `color: rgb(219, 70, 26);` in different selectors (shows up 6x in your CSS) you're probably better off making it a separate class and adding it where it makes the most sense. -->
 - If you have a selector that only has one function like adding margin to the top it's usually best practice at a lot of places (although not at considered so some places I've worked) to instead of saying like `.someClass{margin-top: 100px;}` saying `.mt100{margin-top: 100px;}` and then adding that class where you need said class. It can lead to more lines of CSS but definitely helps to make classes more clear in the HTML file itself.
   <!-- * You're using `<br>` tags in your modal body for the feedback on all pages. Try to avoid those tags whenever possible. The same effect can be accomplished via CSS and the use of block elements.
 - Also in the modal you have unlinked label tags such as in the following snippet: `<label for="stars">Rate us!</label> <select>...` If you're using a label tag you need to have it "linked" to its corresponding form element. For it to link the `for` attribute has to contain the `id` of the form element it goes with. So in the case of the example above, you should refactor it to: `<label for="stars">Rate us!</label> <select id="stars">...` so the select has an `id` attribute that matches its `label` and vice versa. -->
@@ -76,7 +77,7 @@ super nitpicky but your front page of a site should always be in the top level f
 
 ### All Pages
 
-- I mention it earlier but I would suggest removing the login or logout buttons when a user is/isn't logged in as opposed to hiding them. This is best practice and while you can do this now a lot of frameworks take the heavy lifting out for you in the future with things like `ngIf` for angular.
+<!-- - I mention it earlier but I would suggest removing the login or logout buttons when a user is/isn't logged in as opposed to hiding them. This is best practice and while you can do this now a lot of frameworks take the heavy lifting out for you in the future with things like `ngIf` for angular. -->
   <!-- * You have the snippet of code to change what links are visible at the top of each js file. I mention it above but it would probably be best to remove out repeated code to a separate js file with an appropriate name. -->
   <!-- * Your feedback form doesn't long anything to the console and also doesn't close when the "Save Changes" button is clicked. Like I mention above if you rename it "Submit" and it doesn't close on click it can lead to a user thinking it's broken which might cause multiple submissions before they just manually close it.  -->
   <!-- ### Main Page
@@ -99,27 +100,31 @@ super nitpicky but your front page of a site should always be in the top level f
     2. Then you could have a single .getJSON with whatever string was built for the appropriate endpoint. This would be the URL built custom for search or translate or random.
     3. The only refactoring portion would be that since you'd either need `data` or `data.data` you could simply say `if(Array.isArray(data.data)){appendGif(data.data)}` `else{appendGif(data)}` this would remove upwards of 70 lines of code if properly refactored.
 * You're utilizing `alert()` in several places. In production code you pretty much never want to use alerts. Best practice would be to update the DOM in some way. This could be as simple as adding a card to the results container saying "Something went wrong etc etc." -->
-* The translate and random endpoints will ALWAYS return results even if the user types in something like `fajp8o43ljq7avjl` in the search field. The search endpoint will return an empty array if nothing matches the search field though. I would suggest refactoring the code to have feedback to the DOM to say something like "No Results Found Try a Different Search Term" otherwise it can come across as a broken site which can lead to a bad user experience.
+
+<!-- - The translate and random endpoints will ALWAYS return results even if the user types in something like `fajp8o43ljq7avjl` in the search field. The search endpoint will return an empty array if nothing matches the search field though. I would suggest refactoring the code to have feedback to the DOM to say something like "No Results Found Try a Different Search Term" otherwise it can come across as a broken site which can lead to a bad user experience. -->
+
 ### Login
-* You have a lot of `someSelector.css()` lines of code and some of them are repetative such as
-``` javascript
-    $('#loginSubmit').css('display', 'none');
-    $('.username').css('display', 'none');
-    $('.password').css('display', 'none');
-````
 
-- If you were to add a single class to all of those such as "loginStepOne" or whatever you could simply say `$('.loginStepOne').css('display', 'none')`;
+<!-- - You have a lot of `someSelector.css()` lines of code and some of them are repetative such as
+
+```javascript
+$('#loginSubmit').css('display', 'none');
+$('.username').css('display', 'none');
+$('.password').css('display', 'none');
+``` -->
+
+<!-- - If you were to add a single class to all of those such as "loginStepOne" or whatever you could simply say `$('.loginStepOne').css('display', 'none')`; -->
   <!-- * On lines 45-57 you're looping through all of the USERS array to check each ones password and username. Unfortunately if there's a match you're not stopping the loop. What this means is that the counter for the loop `i` will keep counting up. When you go to save `USERS[i]` in localStorage on line 77 `i` will ALWAYS be equal to the last index of USERS so only the last user will ever be stored. To overcome this you can add a `return;` in place of `verified = true` at line 50. Then you can remove the if statement at around the code on lines 54 and 55 since that code will only be hit if a username and password DON'T match. -->
-- At the top of the file you should verify to see if there is a user saved in localStorage and if there is set the `window.location.href = 'path to the library file';` This will ensure that if a user is logged in they don't see the login form.
+<!-- - At the top of the file you should verify to see if there is a user saved in localStorage and if there is set the `window.location.href = 'path to the library file';` This will ensure that if a user is logged in they don't see the login form. -->
 
-<!-- ## Final Thoughts
-* First off these are the big things I noticed when going through the code and functionality. I might have missed things or not fully explained something in here that you want more clarification on. In general I tried to avoid making comments such as `I would have done it X way but Y way is acceptable` as that doesn't really help you learn. I stuck mostly to broken things or best practices.
-* Overall awesome work on this. This was A LOT to take in and I'm well aware of that.
-* Definitely focus on making sure your pages scale with the browser window as that can make or break a sites feel especially with so many things being accessed on smart phones today.
-* I would highly recommend you take a look at some basic tutorials for Angular between now and the start of Sebastian's class.
-* Also focus on refactoring all of the things I mentioned and once you're comfortable in Angular try going back and refactoring this project in angular.
-* You definitely have an aptitude for this and if you keep putting the effort in you have so far you'll do quite well.
-* Feel free to reach out if you have any concerns or thoughts. Also feel free to reach out for feedback if you go through and finish all of the bonus stuff for this or any of the other projects we worked on. -->
+// <!-- ## Final Thoughts
+// * First off these are the big things I noticed when going through the code and functionality. I might have missed things or not fully explained something in here that you want more clarification on. In general I tried to avoid making comments such as `I would have done it X way but Y way is acceptable` as that doesn't really help you learn. I stuck mostly to broken things or best practices.
+// * Overall awesome work on this. This was A LOT to take in and I'm well aware of that.
+// * Definitely focus on making sure your pages scale with the browser window as that can make or break a sites feel especially with so many things being accessed on smart phones today.
+// * I would highly recommend you take a look at some basic tutorials for Angular between now and the start of Sebastian's class.
+// * Also focus on refactoring all of the things I mentioned and once you're comfortable in Angular try going back and refactoring this project in angular.
+// * You definitely have an aptitude for this and if you keep putting the effort in you have so far you'll do quite well.
+// * Feel free to reach out if you have any concerns or thoughts. Also feel free to reach out for feedback if you go through and finish all of the bonus stuff for this or any of the other projects we worked on. -->
 
 // <!-- One thing that I forgot to mention in your feedback is the use of `col-12` wrapping if you want extra padding between col elements. In your library when gifs are added you currently have them at `col-3` so they can fit three across with your spacing for marign. if you wrap the items in a `col-4 d-flex` div and then have the cards themselves be a col-12 it makes for a cleaner look with appropriate padding:
 

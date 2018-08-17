@@ -57,12 +57,12 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto" float-right>
-        <li id="loginButton" class="nav-item mt-0">
-          <a class="nav-link navFont" href="../login/login.html">Login</a>
-        </li>
-        <li id="logoutButton" class="nav-item mt-0">
-          <a class="nav-link navFont" href="#">Logout</a>
-        </li>
+        <!-- <div class="navLogin">
+          Login button
+        </div> -->
+        <div class="navLogout">
+          <!-- Logout Button -->
+        </div>
       </ul>
     </div>
   </nav>
@@ -231,13 +231,14 @@
               <option value='oneStar'>1 star</option>
             </select>
             <br>
-            <label for='textArea' class="textArea clearfix" for="">Tell us what you think.</label>
-            <textarea id='textArea' rows='4' cols='50' placeholder="Comments"></textarea>
+            <label for='textArea' class="textArea clearfix" for="">Tell us what you think.
+            </label>
+            <textarea id='textArea' rows='4' cols='46' placeholder="Comments"></textarea>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn cancelButton" data-dismiss="modal">Close</button>
-          <button id='feedbackButton' type="close" class="btn button">Submit</button>
+          <button id='feedbackButton' type="button" class="btn button" data-dismiss="modal">Submit</button>
         </div>
       </div>
     </div>

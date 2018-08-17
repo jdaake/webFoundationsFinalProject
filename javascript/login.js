@@ -42,12 +42,9 @@ $(function () {
     }
   ]
 
-
-  // Verify email and password and store in localStorage
-  let verified = false
-
   $("#loginSubmit").on('click', (e) => {
     event.preventDefault();
+    // Verify email address and password match a user
     for (i in USERS) {
       if ($('#emailAddress').val() === USERS[i].email && $('#pass').val() === USERS[i].password) {
         twoFactAuth();
@@ -58,6 +55,7 @@ $(function () {
       if ($('#emailAddress').val() !== USERS[i].email && $('#pass').val() !== USERS[i].password) {
         $('#loginBox').css('display', 'none');
         $('#error').fadeIn(500).css('display', 'inherit');
+        return;
       }
     }
   })
@@ -66,41 +64,44 @@ $(function () {
   let code;
 
   twoFactAuth = () => {
+    // Generate a random 6 digit number
     code = Math.floor(Math.random() * 900000) + 100000;
+    // Disable login submit button so more codes are not generated.
     $('#loginSubmit').prop('disabled', true);
+    // Hide username and password.
     $('.login').css('display', 'none');
+    // Display code box
     $('.twoFactAuth').css('display', 'inherit');
-    console.log(code)
+    console.log(code);
   }
 
   // Submit code function
   $('#codeSubmitButton').on('click', (e) => {
     event.preventDefault();
+    // Verify input value equals code.
     if ($('#auth').val() == code) {
       localStorage.setItem('user', JSON.stringify(USERS[i]));
-      location.href = '../library/library.html'
+      location.href = '../library/library.html';
     } else {
       $('#loginBox').css('display', 'none');
       $('#codeError').fadeIn(500).css('display', 'inherit');
-      verified = false
     }
   })
 
   // Try Again button
   $('.tryAgain').on('click', (e) => {
-    $('#pass').val('');
-    $('#emailAddress').val('');
-    $('#auth').val('');
-    $('#loginSubmit').prop('disabled', false);
-    $('#error').css('display', 'none')
-    $('#codeError').css('display', 'none');
-    $('#loginBox').fadeIn(500).css('display', 'inherit');
-    $('#loginSubmit').css('display', 'inherit');
-    $('.username').css('display', 'inherit');
-    $('.password').css('display', 'inherit');
+    // Remove error box
+    $('.errorBox').css('display', 'none');
+    // Remove code box.
     $('.twoFactAuth').css('display', 'none');
-    $('#codeSubmitButton').css('display', 'none');
-    verified = false
+    // Clear email/password/code values.
+    $('.input').val('');
+    // Bring back login box
+    $('#loginBox').fadeIn(500).css('display', 'inherit');
+    // Display username and password.
+    $('.login').css('display', 'inherit');
+    // Enable login submit button.
+    $('#loginSubmit').prop('disabled', false);
   })
 
   // Cancel button

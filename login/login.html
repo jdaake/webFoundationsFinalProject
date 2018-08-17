@@ -56,14 +56,11 @@
         <li class="nav-item mt-0">
           <a id="aboutButton" class="nav-link navFont" href="../about/about.html ">About</a>
         </li>
-        <li class="nav-item mt-0">
-          <a id="libraryButton" class="nav-link navFont" href="../library/library.html ">Library</a>
-        </li>
       </ul>
       <ul class="navbar-nav ml-auto" float-right>
-        <li id="loginButton" class="nav-item mt-0 active">
-          <a class="nav-link navFont" href="./login/login.html">Login</a>
-        </li>
+        <div class="navLogin">
+          <!-- Login button -->
+        </div>
       </ul>
     </div>
   </nav>
@@ -86,8 +83,8 @@
           </div>
           <div class="password login">
             <label for="pass">Password:</label>
-            <input class="input float-right " type="password" placeholder="password" value=""
-              id="pass">
+            <input id="pass" class="input float-right " type="password" placeholder="password"
+              value="">
           </div>
           <div class="twoFactAuth">
             <label for="auth">Code:</label>
@@ -102,7 +99,7 @@
       </div>
     </div>
     <!-- Username/password error Container -->
-    <div id="error" class="align-items-center container">
+    <div id="error" class="align-items-center container errorBox">
       <div class="container">
         <div class="card errorCard">
           <div class="card-body justify-content-center">
@@ -117,7 +114,7 @@
       </div>
     </div>
     <!-- Code error container -->
-    <div id="codeError" class="align-items-center container">
+    <div id="codeError" class="align-items-center container errorBox">
       <div class="container">
         <div class="card errorCard">
           <div class="card-body justify-content-center">

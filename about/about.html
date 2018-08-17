@@ -7,7 +7,9 @@
   <title>About Us</title>
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
 
   <!-- Icon Library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,13 +21,18 @@
   <link rel="stylesheet" href="../assets/styles/style.css" type="text/css">
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=" anonymous "></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js " integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin=" anonymous "></script>
 
   <!-- Popper -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js "
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 "
+    crossorigin="anonymous "></script>
 
   <!-- Bootstrap -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js " integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy " crossorigin="anonymous "></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js "
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy "
+    crossorigin="anonymous "></script>
 
   <!-- Javascript -->
   <script src='../javascript/shared.js'></script>
@@ -36,9 +43,10 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light py-0 text-center">
-    <img class="navbar-brand" id="navLogo" src="http://daake.com/wp-content/uploads/2018/04/Daake_Logo_RGB.png " href="index.html">
-    <button class="navbar-toggler" type="button " data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <img class="navbar-brand" id="navLogo" src="http://daake.com/wp-content/uploads/2018/04/Daake_Logo_RGB.png "
+      href="index.html">
+    <button class="navbar-toggler" type="button " data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon "></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -51,17 +59,16 @@
         <li class="nav-item mt-0">
           <a id="aboutButton" class="nav-link navFont active" href="./about/about.html ">About</a>
         </li>
-        <li class="nav-item mt-0">
-          <a id="libraryButton" class="nav-link navFont" href="../library/library.html ">Library</a>
-        </li>
+        <div class="navLibrary">
+        </div>
       </ul>
       <ul class="navbar-nav ml-auto" float-right>
-        <li id="loginButton" class="nav-item mt-0">
-          <a class="nav-link navFont" href="../login/login.html">Login</a>
-        </li>
-        <li id="logoutButton" class="nav-item mt-0">
-          <a class="nav-link navFont" href="#">Logout</a>
-        </li>
+        <div class="navLogin">
+          <!-- Login button -->
+        </div>
+        <div class="navLogout">
+          <!-- Logout Button -->
+        </div>
       </ul>
     </div>
   </nav>
@@ -70,34 +77,42 @@
     <!-- Left Side Content -->
     <div class="float-left col-md-5 boxLeft container">
       <p class="heading brandColor">About Us</p>
-      <p class="content">Hi! We’re Daake (dĕy-kēy). Since 2016, we’ve delivered breakthrough brand thinking executed with precision.</p>
+      <p class="content">Hi! We’re Daake (dĕy-kēy). Since 2016, we’ve delivered breakthrough brand thinking
+        executed with precision.</p>
       <p class="content">We are a tight-knit group of thinkers, do-ers, creators, narrators and organizers.
       </p>
-      <p class="content">Our work spans from Tucson to Dallas to Omaha to Chicago to Boston, across all industries and company sizes.</p>
+      <p class="content">Our work spans from Tucson to Dallas to Omaha to Chicago to Boston, across
+        all industries and company sizes.</p>
     </div>
     <!-- Right Side Carousel -->
     <div class="float-right col-md-7 boxRight">
-      <div class="col-12 carousel slide carousel-fade carouselSection aboutUsCarousel" data-ride="carousel">
+      <div class="col-12 carousel slide carousel-fade carouselSection aboutUsCarousel"
+        data-ride="carousel">
         <div class="carousel-inner">
           <!-- image 1 -->
           <div class="carousel-item active">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/1024248/pexels-photo-1024248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="First slide">
+            <img class="d-block w-100" src="https://images.pexels.com/photos/1024248/pexels-photo-1024248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="First slide">
           </div>
           <!-- image 2 -->
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Second slide">
+            <img class="d-block w-100" src="https://images.pexels.com/photos/1068523/pexels-photo-1068523.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="Second slide">
           </div>
           <!-- image 3 -->
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/450271/pexels-photo-450271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Third slide">
+            <img class="d-block w-100" src="https://images.pexels.com/photos/450271/pexels-photo-450271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="Third slide">
           </div>
           <!-- image 4 -->
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/1204649/pexels-photo-1204649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Fourth slide">
+            <img class="d-block w-100" src="https://images.pexels.com/photos/1204649/pexels-photo-1204649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="Fourth slide">
           </div>
           <!-- image 5 -->
           <div class="carousel-item">
-            <img class="d-block w-100" src="https://images.pexels.com/photos/1015568/pexels-photo-1015568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Fifth slide">
+            <img class="d-block w-100" src="https://images.pexels.com/photos/1015568/pexels-photo-1015568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="Fifth slide">
           </div>
         </div>
       </div>
@@ -107,7 +122,8 @@
   <!-- Second Section -->
   <div class="container-fluid sectionGray d-flex justify-content-center">
     <div class="container">
-      <div class=" text-center content headerOne d-flex justify-content-center brandColor">Compare our products<br>and services.
+      <div class=" text-center content headerOne d-flex justify-content-center brandColor">Compare our products
+        <br>and services.
       </div>
     </div>
     <div id="productTableBox d-flex justify-content-center">
@@ -149,7 +165,8 @@
       </table>
     </div>
     <div class="container">
-      <div class="text-center content headerTwo brandColor">See what our clients<br>are saying about us.
+      <div class="text-center content headerTwo brandColor">See what our clients
+        <br>are saying about us.
       </div>
     </div>
   </div>
@@ -163,7 +180,7 @@
         <option value='lowestRating'>Lowest Rating</option>
         <option value='mostRecent'>Most Recent</option>
         <option value='oldest'>Oldest</option>
-        </select>
+      </select>
     </div>
     <div class="d-flex row container-fluid">
       <div id="reviews" class="d-flex row justify-content-center col-12">
@@ -178,19 +195,29 @@
     <img src="../assets/img/daakeLogo.png " class="float-right footerImage ">
     <div class="d-flex justify-content-start float-left ">
       <ul class="footerUL ">
-        <li><a class="footerList " href="../index.html">Home</a></li>
-        <li><a class="footerList " href="mailto:example@example.com ">Contact</a></li>
-        <li><a class="footerList " href="#" data-toggle="modal" data-target="#feedbackModal">Leave Feedback</a></li>
+        <li>
+          <a class="footerList " href="../index.html">Home</a>
+        </li>
+        <li>
+          <a class="footerList " href="mailto:example@example.com ">Contact</a>
+        </li>
+        <li>
+          <a class="footerList " href="#" data-toggle="modal" data-target="#feedbackModal">Leave Feedback</a>
+        </li>
       </ul>
     </div>
     <!-- Address -->
     <div class="d-flex justify-content-center ">
-      <p class="address ">12345 Dodge Street<br>Suite 5000<br>Omaha, NE 68135<br>402.555.5555</p>
+      <p class="address ">12345 Dodge Street
+        <br>Suite 5000
+        <br>Omaha, NE 68135
+        <br>402.555.5555</p>
     </div>
     </div>
   </footer>
- <!-- Modal -->
- <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -222,7 +249,7 @@
             </select>
             <br>
             <label for='textArea' class="textArea clearfix" for="">Tell us what you think.</label>
-            <textarea id='textArea'  rows='4' cols='46' placeholder="Comments"></textarea>
+            <textarea id='textArea' rows='4' cols='46' placeholder="Comments"></textarea>
           </form>
         </div>
         <div class="modal-footer">

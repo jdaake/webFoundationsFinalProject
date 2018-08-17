@@ -2,12 +2,19 @@ $(function () {
 
   // Local Storage
   if (localStorage.getItem('user')) {
-    $('#loginButton').css('display', 'none');
-    $('#libraryButton').css('visibility', 'visible');
-    // window.location.href = '../library/library.html'
+    $('.navLogout').append(`<li id="logoutButton" class="nav-item mt-0">
+        <a class="nav-link navFont" href="#">Logout</a>
+        </li>`)
+    $('.navLibrary').append(` <li class="nav-item mt-0">
+        <a id="libraryButton" class="nav-link navFont" href="../library/library.html">Library</a>
+        </li>`)
+
   } else {
-    $("#logoutButton").css('display', 'none');
-    $('#libraryButton').css('display', 'none');
+    $('.navLogin').append(`<li id="loginButton" class="nav-item mt-0">
+        <a class = "nav-link navFont"
+        href = "../login/login.html"> Login </a> 
+        </li>`)
+    $('.navLibrary').remove();
   }
 
   // Posting feedback to console
